@@ -10,9 +10,9 @@ import java.util.*
  * description: 工具类
  */
 
-private val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss mmm", Locale.CHINA)
+private val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS", Locale.CHINA)
 
 // 打印带时间的日志
 fun printlnT(s: String) {
-    println("${dataFormat.format(Date())} - $s")
+    println("${dataFormat.format(Date())}：${Thread.currentThread().name} - $s")
 }
