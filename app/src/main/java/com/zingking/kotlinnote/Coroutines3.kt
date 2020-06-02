@@ -96,3 +96,20 @@ suspend fun filedConcurrentSum(): Int = coroutineScope {
     }
     first.await() + second.await()
 }
+
+fun main() = runBlocking {
+    testThread()
+}
+
+suspend fun testThread() {
+    coroutineScope {
+        val job = launch(Dispatchers.IO) {
+            delay(3000L)
+            var i = 10
+            printlnT("fetch data")
+            withContext(Dispatchers.Main) {
+                printlnT("￥$i")
+            }
+        }
+    }
+}
